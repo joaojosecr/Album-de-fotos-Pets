@@ -6,32 +6,35 @@
     <title>Meu Pet</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-
+    <script src="app.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.js"></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.14.1/mapbox-gl.css' rel='stylesheet' />
 </head>
-<body class="bg-light">
+<body class="bg-light" onload="exibePets()" >
     <!-- Navegação -->
-    <nav class="navbar navbar-expand-lg bg-primary ">
-        <div class="container">
-            <a class="navbar-brand " href="index.html"><img src="img/logo.png" width="70px"></a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-            <!-- <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index2.html">Features</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Pricing</a>
-                    </li>
-                </ul>
-            </div> -->
-        </div>
-    </nav>
-    
+    <header>
+        <nav class="navbar navbar-expand-lg bg-primary ">
+            <div class="container">
+                <a class="navbar-brand " href="index.html"><img src="img/logo.png" width="110px"></a>
+                    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button> -->
+                <!-- <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="index2.html">Features</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Pricing</a>
+                        </li>
+                    </ul>
+                </div> -->
+            </div>
+        </nav>
+    </header>
     <!-- Main -->
     <main class="container py-2">
         <!-- Destaques -->
@@ -67,101 +70,15 @@
         
         <!-- Mapa -->
         <p class="text-dark border-bottom border-primary border-4 h2">Mapa</p>
-        <div class="row py-2">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d587.1134026989034!2d-42.486743584755494!3d-20.462862940483067!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1spt-BR!2sbr!4v1695947943649!5m2!1spt-BR!2sbr" width="800" height="250" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <div class="row py-2"  style="height: 300px;">
+            <div id="map"></div>
         </div>
 
         <!-- Lista de Albuns -->
-        <p class="text-dark border-bottom border-primary border-4 h2">Lista de Álbuns</p>
-        
-        <div class="row py-2">
-            <!-- Petit -->
-            <a class="col-xl-3 col-lg-4 col-md-6 border border-0" href="petit.html">
-                <div class="card mb-4 text-white bg-dark">
-                    <img class="card-img-top" src="img/pets/Petit/p.png" alt="Card image cap">
-                    <div class="card-body border border-0">
-                        <h4 class="card-title border border-0">Petit</h4>
-                        <p> Pinscher <br> Macho <br> 13 anos <br> Dorminhoco </p>
-                    </div>
-                </div>
-            </a>
-            <!-- Maia -->
-            <a class="col-xl-3 col-lg-4 col-md-6 border border-0" href="maia.html">
-                <div class="card mb-4 text-white bg-dark">
-                    <img class="card-img-top" src="img/pets/Maia/p.png" alt="Card image cap">
-                    <div class="card-body border border-0">
-                        <h4 class="card-title border border-0">Maia</h4>
-                        <p> Pastor-alemão <br> Fêmea <br> 8 anos <br> Dengosa </p>
-                    </div>
-                </div>
-            </a>
-                
-            <!-- Filo -->
-            <a class="col-xl-3 col-lg-4 col-md-6 border border-0" href="filo.html">
-                <div class="card mb-4 text-white bg-dark">
-                    <img class="card-img-top" src="img/pets/Filo/p.png" alt="Card image cap">
-                    <div class="card-body border border-0">
-                        <h4 class="card-title border border-0">Filó</h4>
-                        <p> Vira-lata <br> Fêmea <br> 2 anos <br> Adora carinho </p>
-                    </div>
-                </div>
-            </a>
-    
-            <!-- Thor -->
-            <a class="col-xl-3 col-lg-4 col-md-6 border border-0" href="thro.html">
-                <div class="card mb-4 text-white bg-dark">
-                    <img class="card-img-top" src="img/pets/Thor/p.png" alt="Card image cap">
-                    <div class="card-body border border-0">
-                        <h4 class="card-title border border-0">Thor</h4>
-                        <p> Pastor-alemão <br> Macho <br> 5 anos <br> Bravo e fiel </p>
-                    </div>
-                </div>
-            </a>
-    
-            <!-- Lola -->
-            <a class="col-xl-3 col-lg-4 col-md-6 border border-0" href="lola.html">
-                <div class="card mb-4 text-white bg-dark">
-                    <img class="card-img-top" src="img/pets/Lola/p.png" alt="Imagem">
-                    <div class="card-body border border-0">
-                        <h4 class="card-title border border-0">Lola</h4>
-                        <p> Maltês <br> Fêmea <br> 3 anos <br> Fofura da casa </p>
-                    </div>
-                </div>
-            </a>
-    
-            <!-- Scott -->
-            <a class="col-xl-3 col-lg-4 col-md-6 border border-0" href="scott.html">
-                <div class="card mb-4 text-white bg-dark">
-                    <img class="card-img-top" src="img/pets/Scott/p.png" alt="Card image cap">
-                    <div class="card-body border border-0">
-                        <h4 class="card-title border border-0">Scott</h4>
-                        <p> Yorkshire <br> Macho <br> 4 anos <br> Adora bolinhas </p>
-                    </div>
-                </div>
-            </a>
-    
-            <!-- Madonna -->    
-            <a class="col-xl-3 col-lg-4 col-md-6 border border-0" href="maddona.html">
-                <div class="card mb-4 text-white bg-dark">
-                    <img class="card-img-top" src="img/pets/Madonna/p.png" alt="Card image cap">
-                    <div class="card-body border border-0">
-                        <h4 class="card-title border border-0">Madonna</h4>
-                        <p> Pitbull <br> Fêmea <br> 5 anos <br> Fotogênica </p>
-                    </div>
-                </div>
-            </a>
-
-            <!-- Maggie -->
-            <a class="col-xl-3 col-lg-4 col-md-6 border border-0" href="maggie.html">
-                <div class="card mb-4 text-white bg-dark">
-                    <img class="card-img-top" src="img/pets/Maggie/p.png" alt="Card image cap">
-                    <div class="card-body border border-0">
-                        <h4 class="card-title border border-0">Maggie</h4>
-                        <p> Bordercollie <br> Fêmea <br> 1 ano <br> Adora brincar</p>
-                    </div>
-                </div>
-            </a>
-
+        <!-- Cards -->
+        <div class="container" >
+            <div class="row py-2" id="pets-container">
+            </div>
         </div>
 
 
@@ -206,6 +123,168 @@
         </div>
        
     </footer>
+    
+    <script>
+        const centralLatLong= [-43.9397233,-19.9332786]
+        mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hb2pvc2VjciIsImEiOiJjbHBtdWFlN3QwZGdvMnF1aGo1dzJtdHJhIn0.AIfELyfSUPcP-S2sRaHBXw';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: centralLatLong,
+            zoom: 5
+        });
+
+        function processarGeo (local) {
+          let popup = new mapboxgl.Popup({ offset: 25 })
+              .setHTML(`<h3> Estou aqui!!! </h3>`);
+              console.log([local.coords.longitude, local.coords.latitude])
+          const marker = new mapboxgl.Marker({ color: 'yellow' })
+              .setLngLat([local.coords.longitude, local.coords.latitude])
+              .setPopup(popup)
+              .addTo(map);  
+        }
+        
+
+        fetch('db.json')
+            .then(response => response.json())
+            .then(db => {
+                db.pets.forEach(album => {
+                    let popup = new mapboxgl.Popup({ offset: 25 })
+                    .setHTML(`<h3> Estou aqui!!! </h3>`);
+                        console.log(album.latlong)
+                    const marker = new mapboxgl.Marker({ color: 'red' })
+                        .setLngLat(album.latlong)
+                        .setPopup(popup)
+                        .addTo(map);  
+                    
+                });
+            })
+            .catch(error => console.error('Erro ao carregar dados:', error));
+        
+        navigator.geolocation.getCurrentPosition (processarGeo, () => { alert ('Erro ao obter localização.') })
+      
+    </script>
+
+    <!-- <script>
+        // ----------------------------------------------
+        // Cria uma estrutura de dados com informações das unidades da PUC Minas 
+        let unidadesPUC = [
+            {
+                id: 1,
+                descricao: 'PUC Minas - Coração Eucarístico',
+                endereco: 'Rua Dom José Gaspar, 500',
+                cidade: 'Belo Horizonte',
+                latlong: [-43.992911,-19.923564],
+                url: 'https://www.pucminas.br',
+                img: 'https://www.pucminas.br/unidade/praca-da-liberdade/Paginas/default.aspx',
+                cor: 'red'
+            },
+            {
+                id: 2,
+                descricao: 'PUC Minas - Praça da Liberdade',
+                endereco: 'Av. Brasil, 2023 - Funcionários',
+                cidade: 'Belo Horizonte',
+                latlong: [-43.9397233,-19.9332786],
+                url: 'https://www.pucminas.br/unidade/praca-da-liberdade/Paginas/default.aspx',
+                cor: 'red'
+            },
+            {
+                id: 3,
+                descricao: 'PUC Minas - Barreiro',
+                endereco: 'Avenida Afonso Vaz de Melo, 1.200 - Barreiro',
+                cidade: 'Belo Horizonte',
+                latlong: [-44.025818,-19.976609],
+                url: 'https://www.pucminas.br/unidade/barreiro/Paginas/default.aspx',
+                cor: 'red'
+            },
+            {
+                id: 4,
+                descricao: 'PUC Minas - São Gabriel',
+                endereco: 'Rua Walter Ianni, 255 - São Gabriel',
+                cidade: 'Belo Horizonte',
+                latlong: [-43.917967,-19.859226],
+                url: 'https://www.pucminas.br/unidade/sao-gabriel/Paginas/default.aspx',
+                cor: 'red'
+            },
+            {
+                id: 5,
+                descricao: 'PUC Minas - Contagem',
+                endereco: 'R. Rio Comprido, 4.580',
+                cidade: 'Contagem',
+                latlong: [-44.076069,-19.939135],
+                url: 'https://www.pucminas.br/unidade/contagem/Paginas/default.aspx',
+                cor: 'blue' 
+            },
+            {
+                id: 6,
+                descricao: 'PUC Minas - Betim',
+                endereco: 'R. do Rosário, 1.081 Bairro Angola',
+                cidade: 'Betim',
+                latlong: [-44.1984331,-19.9550716],
+                url: 'https://www.pucminas.br/unidade/betim/Paginas/default.aspx',
+                cor: 'blue'    
+            },
+            {
+                id: 7,
+                descricao: 'PUC Minas - Poços de Caldas',
+                endereco: 'Av. Pe. Cletus Francis Cox, 1.661',
+                cidade: 'Poços de Caldas',
+                latlong: [-46.5944649,-21.78904],
+                url: 'https://www.pucpcaldas.br/',
+                cor: 'green'    
+            }
+        ]
+
+        // --------------------------------------------------
+        // Cria o mapa baseado na API Mapbox e adiciona no 
+        // elemento de id: map        
+        // --------------------------------------------------
+
+        // ----------------------------------------------
+        // Cria o mapa e adiciona no elemento de id: map 
+        const centralLatLong= [-43.9397233,-19.9332786]
+
+        // ----------------------------------------------
+        // IMPORTANTE: Crie uma conta no Mapbox e adicione  
+        // sua accessToken na linha abaixo
+        mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hb2pvc2VjciIsImEiOiJjbHBtdWFlN3QwZGdvMnF1aGo1dzJtdHJhIn0.AIfELyfSUPcP-S2sRaHBXw';
+        const map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v12',
+            center: centralLatLong,
+            zoom: 5
+        });
+
+
+        // ----------------------------------------------
+        // Adiciona marcadores para unidades da PUC Minas
+        unidadesPUC.forEach ((uni) => {
+            let popup = new mapboxgl.Popup({ offset: 25 })
+                .setHTML(`<h3><a href="${uni.url}" target="_blank">${uni.descricao}</a></h3><br>
+                          ${uni.endereco} <br> ${uni.cidade}`);
+            const marker = new mapboxgl.Marker({ color: uni.cor })
+                .setLngLat(uni.latlong)
+                .setPopup(popup)
+                .addTo(map);     
+        }) 
+
+
+        // ----------------------------------------------
+        // Adiciona um marcador com nossa posição no mapa
+        function processarGeo (local) {
+          let popup = new mapboxgl.Popup({ offset: 25 })
+              .setHTML(`<h3> Estou aqui!!! </h3>`);
+              console.log([local.coords.longitude, local.coords.latitude])
+          const marker = new mapboxgl.Marker({ color: 'yellow' })
+              .setLngLat([local.coords.longitude, local.coords.latitude])
+              .setPopup(popup)
+              .addTo(map);  
+        }
+
+        navigator.geolocation.getCurrentPosition (processarGeo, () => { alert ('Erro ao obter localização.') })
+      
+    </script> -->
+
 
 </body>
 </html>
