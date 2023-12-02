@@ -19,7 +19,7 @@
             "local": "Sericita - MG",
             "descricao": "Inteligente, leal, e amorosa. Protetora nata.",
             "foto": "img/pets/Maia" ,
-            "latlong": [-20.468516, -42.485110]
+            "latlong": [-20.463513, -42.485110]
         },
         {
             "id": "2",
@@ -29,7 +29,7 @@
             "local": "Sericita - MG",
             "descricao": "Alegre, brincalhona e cheia de vida.",
             "foto": "img/pets/Filo" ,
-            "latlong": [-20.468516, -42.485110]
+            "latlong": [-20.468516, -42.481120]
         },
         {
             "id": "3",
@@ -39,7 +39,7 @@
             "local": "Sericita - MG",
             "descricao": "Majestoso, leal e inteligente. Amigo fiel.",
             "foto": "img/pets/Thor" ,
-            "latlong": [-20.468516, -42.485110]
+            "latlong": [-20.438526, -42.485110]
         },
         {
             "id": "4",

@@ -135,13 +135,12 @@
         });
 
         function processarGeo (local) {
-          let popup = new mapboxgl.Popup({ offset: 25 })
-              .setHTML(`<h3> Estou aqui!!! </h3>`);
-              console.log([local.coords.longitude, local.coords.latitude])
-          const marker = new mapboxgl.Marker({ color: 'yellow' })
-              .setLngLat([local.coords.longitude, local.coords.latitude])
-              .setPopup(popup)
-              .addTo(map);  
+            let popup = new mapboxgl.Popup({ offset: 25 })
+                .setHTML(`<h3> Estou aqui!!! </h3>`);
+            const marker = new mapboxgl.Marker({ color: 'yellow' })
+                .setLngLat([local.coords.longitude, local.coords.latitude])
+                .setPopup(popup)
+                .addTo(map);  
         }
         
 
@@ -150,10 +149,10 @@
             .then(db => {
                 db.pets.forEach(album => {
                     let popup = new mapboxgl.Popup({ offset: 25 })
-                    .setHTML(`<h3> Estou aqui!!! </h3>`);
+                    .setHTML(`<h3> ${album.nome} </h3>`);
                         console.log(album.latlong)
                     const marker = new mapboxgl.Marker({ color: 'red' })
-                        .setLngLat(album.latlong)
+                        .setLngLat([album.latlong[1],album.latlong[0]])
                         .setPopup(popup)
                         .addTo(map);  
                     
