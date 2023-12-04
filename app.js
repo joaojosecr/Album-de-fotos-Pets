@@ -4,37 +4,39 @@ function exibePets() {
     let str = ''
 
 
+    const url = 'http://localhost:3000/pets'
 
-    fetch('db.json')
-        .then(response => response.json())
-        .then(db => {          
-            
-            for (let i = 0; i < db.pets.length; i++) {
-                let pet = db.pets[i];
-                str += `<div class="col-xl-3 col-lg-4 col-md-6 border border-0">
-                    <a class="card mb-4 bg-dark" href="pet.html?id=${pet.id}">
-                        <img class="card-img-top" src = ${pet.foto}/p.png alt = ${pet.foto}/p.png   >
-                        <div class="card-body border border-0 text-white")>
-                            <h4 class="card-title text-primary">${pet.nome}</h4>
-                            <p >${pet.raca}</p>
 
-                        </div>
-                    </a>
-                </div>
-                `
-                document.querySelector('#pets-container').innerHTML=str
-            }
+    fetch(url)
+    .then(response => response.json())
+    .then(pets => {          
+        
+        for (let i = 0; i < pets.length; i++) {
+            let pet = pets[i];
+            str += `<div class="col-xl-3 col-lg-4 col-md-6 border border-0">
+                <a class="card mb-4 bg-dark" href="pet.html?id=${pet.id}">
+                    <img class="card-img-top" src = ${pet.foto}/p.png alt = ${pet.foto}/p.png   >
+                    <div class="card-body border border-0 text-white")>
+                        <h4 class="card-title text-primary">${pet.nome}</h4>
+                        <p >${pet.raca}</p>
 
-        })
+                    </div>
+                </a>
+            </div>
+            `
+            document.querySelector('#pets-container').innerHTML=str
+        }
+
+    })
 }   
 
 function exibeUnPet(id) {
-    
-    fetch('db.json')
+    const url = 'http://localhost:3000/pets'
+    fetch(url)
         .then(response => response.json())
-        .then(db => {
-            let idx = db.pets.findIndex(elem => elem.id == id)
-            let pet = db.pets[idx];
+        .then(pets => {
+            let idx = pets.findIndex(elem => elem.id == id)
+            let pet = pets[idx];
             let str =''
             str += `
             
@@ -159,7 +161,6 @@ document.addEventListener('keydown', function(event) {
         minhaDiv.style.display = 'none'; // Oculta a div quando "ESC" é pressionado
     }
 });
-
 
 function exibeMap(){
     const centralLatLong= [-43.9397233,-19.9332786]

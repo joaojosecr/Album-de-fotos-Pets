@@ -1,0 +1,14 @@
+{
+  "dependencies": {
+    "json-server": "^0.17.4"
+  },
+  "name": "1142433_joao_ribeiro",
+  "description": "��#\u0000 \u0000m\u0000e\u0000u\u0000p\u0000e\u0000t\u0000\r\u0000 \u0000",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

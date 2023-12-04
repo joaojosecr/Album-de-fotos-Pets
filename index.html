@@ -38,7 +38,7 @@
     <!-- Main -->
     <main class="container py-2">
         <!-- Destaques -->
-        <p class="text-dark border-bottom border-primary border-4 h2">Destaques</p>
+        <p class="text-dark border-bottom border-primary border-4 h2" id="destaque">Destaques</p>
         <div class="row py-2">
             <div id="carouselExampleIndicators" class="carousel slide col-12">
                 <div class="carousel-indicators">
@@ -70,7 +70,7 @@
         
         <!-- Mapa -->
         <p class="text-dark border-bottom border-primary border-4 h2">Mapa</p>
-        <div class="row py-2"  style="height: 300px;">
+        <div class="row py-2"  style="height: 250px;">
             <div id="map"></div>
         </div>
 
@@ -87,9 +87,9 @@
 
 
   
-    <footer class="section footer-classic context-dark bg-image" style="background: #2d3246; color: white;">
+    <footer class="section footer-classic context-dark bg-image" style="padding: 15px 0px;; background: #2d3246; color: white;">
         <div class="container">
-          <div class="row row-30">
+          <div class="row row-30 py-2">
             <div class="col-md-7 ">
               <div class="pr-xl-4"><a class="brand" href="index.html"></a>
                 <h4>Sobre</h4>
@@ -142,12 +142,12 @@
                 .setPopup(popup)
                 .addTo(map);  
         }
-        
+        const url = 'http://localhost:3000/pets'
 
-        fetch('db.json')
+        fetch(url)
             .then(response => response.json())
-            .then(db => {
-                db.pets.forEach(album => {
+            .then(pets => {
+                pets.forEach(album => {
                     let popup = new mapboxgl.Popup({ offset: 25 })
                     .setHTML(`<h3> ${album.nome} </h3>`);
                         
