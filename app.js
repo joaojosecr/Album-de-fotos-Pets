@@ -14,7 +14,7 @@ function exibePets() {
             let pet = pets[i];
             str += `<div class="col-xl-3 col-lg-4 col-md-6 border border-0">
                 <a class="card mb-4 bg-dark" href="pet.html?id=${pet.id}">
-                    <img class="card-img-top" src = "${pet.foto[13]}" alt = ${pet.foto[i]}   >
+                    <img class="card-img-top" src = "${pet.foto[12]}" alt = ${pet.foto[i]}   >
                     <div class="card-body border border-0 text-white")>
                         <h4 class="card-title text-primary">${pet.nome}</h4>
                         <p >${pet.raca}</p>
@@ -53,7 +53,7 @@ function exibeUnPet(id) {
                 <!-- Descrição-->
                 <div class="col-md-12">
                    <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                        <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="${pet.foto[12]}" style="width: 200px; height: 250px;">
+                        <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="${pet.foto[13]}" style="width: 200px; height: 250px;">
                         
                         <div class="card-body d-flex flex-column align-items-start">
                             <div class="row " >
