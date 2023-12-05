@@ -84,7 +84,7 @@ function exibeUnPet(id) {
                 <button id="${i}" style="width: 100%; " onclick="exibeCarrosselAlbum(${i},'${pet.foto}')" class="mostrarBtn card mb-4 text-white bg-dark">
                     <img class="card-img-top" src="${pet.foto[i]}" alt="Card image cap" style="height: 250px;  overflow: hidden;">
                     <div class="card-body border border-0">
-                    <p>  </p><br>
+                    <p>${pet.desc_foto[i]}</p><br>
                     </div>
                 </button>
                 </div>
