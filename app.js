@@ -1,5 +1,6 @@
 // -------- PARTE JOAO JOSE -------------------
 
+
 function exibePets() {
     let str = ''
 
@@ -15,7 +16,7 @@ function exibePets() {
             let pet = pets[i];
             str += `<div class="col-xl-3 col-lg-4 col-md-6 border border-0">
                 <a class="card mb-4 bg-dark" href="pet.html?id=${pet.id}">
-                    <img class="card-img-top" src = ${pet.foto}/p.png alt = ${pet.foto}/p.png   >
+                    <img class="card-img-top" src = "${pet.foto[13]}" alt = ${pet.foto[i]}   >
                     <div class="card-body border border-0 text-white")>
                         <h4 class="card-title text-primary">${pet.nome}</h4>
                         <p >${pet.raca}</p>
@@ -38,19 +39,26 @@ function exibeUnPet(id) {
             let idx = pets.findIndex(elem => elem.id == id)
             let pet = pets[idx];
             let str =''
+            let favr = ''
+            if (pet.favorito){
+                favr = ' clicked'
+            } 
+    
             str += `
-            
             <!-- Albuns -->
             <p class="text-dark border-bottom border-primary border-4 h2">Álbum do ${pet.nome}</p>
             
-            <div class="row " >
-                
+            <div class="row " >  
                 <!-- Descrição-->
                 <div class="col-md-12">
                    <div class="card flex-md-row mb-4 shadow-sm h-md-250">
-                        <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="img/pets/${pet.nome}/s.png" style="width: 200px; height: 250px;">
+                        <img class="card-img-right flex-auto d-none d-lg-block" alt="Thumbnail [200x250]" src="${pet.foto[12]}" style="width: 200px; height: 250px;">
+                        
                         <div class="card-body d-flex flex-column align-items-start">
-                            <strong class="d-inline-block mb-2 text-primary">${pet.nome}</strong>
+                            <div class="row " >
+                                <strong class="d-inline-block mb-2 text-primary col-3">${pet.nome}</strong>
+                                <button class="star-btn col-1 ${favr}" onclick="toggleStar(event, ${id},${pet.favorito})"></button>
+                                
                             <p class="card-text mb-auto">${pet.descricao}</p>
                             
                             <div style="display: flex; flex-wrap: wrap; width: 100%; padding-bottom: 1%;">
@@ -69,11 +77,11 @@ function exibeUnPet(id) {
                 <!--FOTOS-->
                 <div class="row py-2" id="buttonss">
             `
-            for ( i = 1; i < 13; i++) {
+            for ( i = 0; i < 12; i++) {
                 
                 str += `<div class="col-xl-3 col-lg-4 col-md-6 border border-0" >
-                <button id="${i}" style="width: 100%; " onclick="exibeCarrosselAlbum(${i},'${pet.nome}')" class="mostrarBtn card mb-4 text-white bg-dark">
-                    <img class="card-img-top" src="img/pets/${pet.nome}/${i}.png" alt="Card image cap" style="height: 250px;">
+                <button id="${i}" style="width: 100%; " onclick="exibeCarrosselAlbum(${i},'${pet.foto}')" class="mostrarBtn card mb-4 text-white bg-dark">
+                    <img class="card-img-top" src="${pet.foto[i]}" alt="Card image cap" style="height: 250px;  overflow: hidden;">
                     <div class="card-body border border-0">
                     <p>  </p><br>
                     </div>
@@ -82,20 +90,44 @@ function exibeUnPet(id) {
                 `
                 }
 
-               
-            
             str+=`</div>`
 
-
-        
-            
         document.querySelector('#main').innerHTML=str
         })
 
 }
 
-function exibeCarrosselAlbum(id, nome){
+function toggleStar(event, id, fav) {
+    event.preventDefault();
     
+    const url = 'http://localhost:3000/pets/' + id;
+    let alt = !fav;
+        
+    fetch(url, {
+        method: 'PATCH',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            favorito: alt,
+        }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Faça algo com a resposta (se necessário)
+        console.log('Resposta:', data);
+    })
+    .catch(error => {
+        console.error('Erro:', error);
+    });
+
+    return false;
+}
+
+function exibeCarrosselAlbum(id, fotos){
+
+    var nome = fotos.split(',')
+
     let str =''
     str+=` 
             
@@ -108,7 +140,7 @@ function exibeCarrosselAlbum(id, nome){
                             
                             `
                             for ( i = 0; i < 12; i++) {
-                                if (i+1==id){
+                                if (i==id){
                                     str +=`<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${i}" class="active" aria-current="true" aria-label="Slide ${i}"></button>`
                                 } else {
                                     str +=`<button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${i}" aria-label="Slide ${i}"></button>`
@@ -119,14 +151,14 @@ function exibeCarrosselAlbum(id, nome){
                         <div class="carousel-inner" >`
 
                             for ( i=0; i<12;i++){
-                                if (i+1==id){
+                                if (i==id){
                                     str+= 
                                     `<div class="carousel-item active" id="slide${i}">
-                                        <img src="img/pets/${nome}/${i+1}.png" class="d-block w-100"  alt="..." >
+                                        <img src="${nome[i]}" class="d-block w-100"  alt="..." >
                                     </div>`
                                 } else {
                                     str+=`<div class="carousel-item" id="slide${i}">
-                                    <img src="img/pets/${nome}/${i+1}.png" class="d-block w-100"  alt="..." >
+                                    <img src="${nome[i]}" class="d-block w-100"  alt="..." >
                                     </div>`
                                 }
                             }

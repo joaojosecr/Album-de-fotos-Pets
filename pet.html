@@ -12,7 +12,22 @@
         let idPet = parseInt(urlParams.get('id'))
         exibeUnPet(idPet)
     </script>
-   
+    <style>
+        .star-btn {
+            font-size: 24px; cursor: pointer;
+            border: none; /* Remover bordas */
+            background: none; /* Remover fundo */
+            padding: 0; /* Remover padding */
+        }
+    
+        .star-btn::before {
+            content: '\2606'; /* Estrela vazia */
+        }
+    
+        .star-btn.clicked::before {
+            content: '\2605'; /* Estrela cheia */
+        }
+    </style>
     
 </head> 
 <body class="bg-light" style="position: relative;" >
