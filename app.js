@@ -3,11 +3,9 @@
 
 function exibePets() {
     let str = ''
-
-
-    const url = 'http://localhost:3000/pets'
-
-
+    const url = 'https://jsonserver.joaojosecr.repl.co/pets'; // PARA USAR O SERVIDOR LOCAL COLOQUE url = 'http://localhost:3000/pets'; E COM JSON-SERVER INSTALADO POR npm install json-server, INICIE O SERVIDOR PELO PROMPT json-server --watch db.json
+    console.log("PARA USAR O SERVIDOR LOCAL COLOQUE url = 'http://localhost:3000/pets'; E COM JSON-SERVER INSTALADO POR npm install json-server, INICIE O SERVIDOR PELO PROMPT json-server --watch db.json");
+    
     fetch(url)
     .then(response => response.json())
     .then(pets => {          
@@ -32,7 +30,10 @@ function exibePets() {
 }   
 
 function exibeUnPet(id) {
-    const url = 'http://localhost:3000/pets'
+
+    const url = 'https://jsonserver.joaojosecr.repl.co/pets'; // PARA USAR O SERVIDOR LOCAL COLOQUE url = 'http://localhost:3000/pets'; E COM JSON-SERVER INSTALADO POR npm install json-server, INICIE O SERVIDOR PELO PROMPT json-server --watch db.json
+    console.log("PARA USAR O SERVIDOR LOCAL COLOQUE url = 'http://localhost:3000/pets'; E COM JSON-SERVER INSTALADO POR npm install json-server, INICIE O SERVIDOR PELO PROMPT json-server --watch db.json");
+    
     fetch(url)
         .then(response => response.json())
         .then(pets => {
@@ -99,8 +100,12 @@ function exibeUnPet(id) {
 
 function toggleStar(event, id, fav) {
     event.preventDefault();
+    const url = 'https://jsonserver.joaojosecr.repl.co/pets/' +id; // PARA USAR O SERVIDOR LOCAL COLOQUE url = 'http://localhost:3000/pets'; E COM JSON-SERVER INSTALADO POR npm install json-server, INICIE O SERVIDOR PELO PROMPT json-server --watch db.json
+    console.log("PARA USAR O SERVIDOR LOCAL COLOQUE url = 'http://localhost:3000/pets/'; E COM JSON-SERVER INSTALADO POR npm install json-server, INICIE O SERVIDOR PELO PROMPT json-server --watch db.json");
     
-    const url = 'http://localhost:3000/pets/' + id;
+    var starBtn = document.querySelector('.star-btn');
+    starBtn.classList.toggle('clicked');
+
     let alt = !fav;
         
     fetch(url, {
@@ -194,28 +199,5 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
-function exibeMap(){
-    const centralLatLong= [-43.9397233,-19.9332786]
-    mapboxgl.accessToken = 'pk.eyJ1Ijoiam9hb2pvc2VjciIsImEiOiJjbHBtdWFlN3QwZGdvMnF1aGo1dzJtdHJhIn0.AIfELyfSUPcP-S2sRaHBXw';
-    const map = new mapboxgl.Map({
-        container: 'map',
-        style: 'mapbox://styles/mapbox/streets-v12',
-        center: centralLatLong,
-        zoom: 5
-    });
-    console.log("map")
-    fetch('db.json')
-        .then(response => response.json())
-        .then(db => {          
-            
-            for (let i = 0; i < db.pets.length; i++) {
-                let popup = new mapboxgl.Popup({ offset: 25 })
-                const marker = new mapboxgl.Marker({ color: 'red' })
-                .setLngLat(db.pet[i].latlong)
-                .setPopup(popup)
-                .addTo(map);     
-            }
 
-        })
-}
 

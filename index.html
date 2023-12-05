@@ -100,88 +100,11 @@
     </footer>
     
     <!-- Carrossel -->
-    <!-- <script>
-        const url = 'http://localhost:3000/pets'
-
-        let str =''
-
-        let slider = 3
-        str+= `<div id="carouselExampleIndicators" class="carousel slide col-12">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                    `
-                    fetch(url)
-                    .then(response => response.json())
-                    .then(pets => {          
-                        for (let i = 0; i < pets.length; i++) {
-                            let pet = pets[i];
-                                if(pet.favorito){
-                                    console.log(pet)
-                                
-                                    str+= `
-                                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${slider}" aria-label="Slide ${slider+1}"></button>
-                                    `
-                                    slider++;
-                                }
-                            
-                        }
-                    })
-                    
-                str+=`
-                </div>
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <img src="https://i.ibb.co/q7xkHkb/c.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://i.ibb.co/zJzr2Yb/c.png" class="d-block w-100" alt="...">
-                    </div>
-                    <div class="carousel-item">
-                        <img src="https://i.ibb.co/jZP6DGb/c.png" class="d-block w-100" alt="...">
-                    </div>
-                `
-                    fetch(url)
-                    .then(response => response.json())
-                    .then(pets => {          
-                        
-                        for (let i = 0; i < pets.length; i++) {
-                            let pet = pets[i];
-                            if(pet.favorito){
-                                str+= `
-                                <div class="carousel-item">
-                                    <img src="${pet.foto[14]}" class="d-block w-100" alt="...">
-                                </div>
-                                `
-                            }
-                        
-                        }
-                    })
-                
-                
-                
-                str+=`
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="visually-hidden">Next</span>
-                </button>
-              </div>`
-            
-
-                console.log(str)
-                document.querySelector('#card_carrossel').innerHTML=str
-        
-    </script> -->
-
+    
     <script>
-        const url = 'http://localhost:3000/pets'
-
+        const url = 'https://jsonserver.joaojosecr.repl.co/pets'; // PARA USAR O SERVIDOR LOCAL COLOQUE url = 'http://localhost:3000/pets'; E COM JSON-SERVER INSTALADO POR npm install json-server, INICIE O SERVIDOR PELO PROMPT json-server --watch db.json
+        console.log("PARA USAR O SERVIDOR LOCAL COLOQUE url = 'http://localhost:3000/pets'; E COM JSON-SERVER INSTALADO POR npm install json-server, INICIE O SERVIDOR PELO PROMPT json-server --watch db.json")
+    
         let str = ''
         let slider = 3
 
